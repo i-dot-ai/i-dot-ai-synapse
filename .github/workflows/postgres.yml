@@ -30,7 +30,7 @@ jobs:
 
     strategy:
       matrix:
-        app: [synapse]
+        app: [synapse-postgres]
         include:
           - app: synapse
             dockerfile: docker/synapse/Dockerfile
@@ -67,7 +67,7 @@ jobs:
 
     strategy:
       matrix:
-        app: [synapse]
+        app: [synapse-postgres]
 
     steps:
       - uses: actions/checkout@v3
