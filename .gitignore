@@ -1,0 +1,10 @@
+# Python
+*.pyc
+db.sqlite3
+
+# General
+.DS_Store
+.envs
+.secrets
+orig.*
+orig-*

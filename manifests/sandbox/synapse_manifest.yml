@@ -1,0 +1,22 @@
+---
+applications:
+- name: synapse-sandbox
+  memory: 1024M
+  instances: 1
+  env:
+    SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
+    # SERVER_NAME: synapse-sandbox
+    # REPORT_STATS: 'no'
+
+  # env_var_file: .env
+  disk_quota: 2048M
+  # services:
+  #   - synapse-postgres-sandbox
+  routes:
+  - route: synapse-sandbox.london.cloudapps.digital
+    protocol: http1
+    # port: 8080
+  health-check-type: port
+  # command: python3 -m synapse.app.homeserver --server-name=synapse-sandbox --report-stats=no --generate-config -c homeserver.yaml && synctl start
+  # network:
+  #   ipv6: false
