@@ -1,0 +1,14 @@
+---
+applications:
+- name: synapse-develop
+  memory: 1024M
+  instances: 1
+  env:
+    SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
+  disk_quota: 2048M
+  services:
+    - synapse-postgres-develop
+  routes:
+  - route: synapse-develop.london.cloudapps.digital
+    protocol: http1
+  health-check-type: port
