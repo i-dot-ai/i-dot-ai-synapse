@@ -1,16 +1,9 @@
-POSTGRES_HOST=envs.synapse.file
-POSTGRES_PORT=envs.synapse.file
-POSTGRES_DB=envs.synapse.file
-POSTGRES_USER=envs.synapse.file
-POSTGRES_PASSWORD=envs.synapse.file
-PGPASSWORD=envs.synapse.file
-DATABASE_URL=envs.synapse.file
-
-POSTGRES_USER='synapse'
-DB_NAME='synapse'
-DB_HOST='i-dot-ai-synapse_synapse_db_1'
-POSTGRES_PASSWORD='mysecretpassword'
-DATABASE_URL='postgres://synapse:aComplexPassphraseNobodyCanGuess@i-dot-ai-synapse_synapse_db_1:5432/synapse'
+# The DATABASE URL will get split out into the following variables
+# POSTGRES_USER='synapse'
+# POSTGRES_NAME='synapse'
+# POSTGRES_HOST='i-dot-ai-synapse_synapse_db_1'
+# POSTGRES_PASSWORD='mysecretpassword'
+DATABASE_URL='postgres://synapse:mysecretpassword@i-dot-ai-synapse_synapse_db_1:5432/synapse'
 
 FORM_SECRET='xxxxxxxxxxxxxxxxxxxxxx'
 MACAROON_SECRET_KEY='xxxxxxxxxxxxxxxxxxxxxxx'

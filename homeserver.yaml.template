@@ -1,5 +1,5 @@
 # Configuration file for Synapse.
-#
+# RP
 # This is a YAML file: see [1] for a quick introduction. Note in particular
 # that *indentation is important*: all the elements of a list or dictionary
 # should have the same indentation.
@@ -27,8 +27,8 @@ database:
   args:
     user: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
-    database: ${DB_NAME}
-    host: ${DB_HOST}
+    database: ${POSTGRES_NAME}
+    host: '${POSTGRES_HOST}'
     port: 5432
     cp_min: 5
     cp_max: 10
@@ -44,4 +44,5 @@ signing_key_path: "/data/${SERVER_NAME}.signing.key"
 trusted_key_servers:
   - server_name: "matrix.org"
 suppress_key_server_warning: true
+# ${POSTGRES_NAME}
 # vim:ft=yaml
