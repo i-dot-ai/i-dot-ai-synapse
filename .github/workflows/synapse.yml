@@ -34,8 +34,6 @@ jobs:
         include:
           - app: synapse
             dockerfile: docker/synapse/Dockerfile
-          - app: synapse-postgres
-            dockerfile: docker/postgres/Dockerfile
 
     steps:
       - uses: actions/checkout@v3
