@@ -47,14 +47,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup prod servername
+        if:  ${{ github.ref_name == 'prod'}}
+        run: echo "SERVER_NAME=i-dot-ai-matrix" >> $GITHUB_ENV
+
       - name: Build, tag, and push ${{ matrix.app }} image
         env:
           DOCKER_FILE: ${{ matrix.dockerfile }}
           DOCKER_IMAGE: ${{ matrix.app }}
-
-      - name: Setup prod servername
-        if:  ${{ github.ref_name == 'prod'}}
-        run: echo "SERVER_NAME=i-dot-ai-matrix" >> $GITHUB_ENV
 
         run: |
           docker build . --file $DOCKER_FILE --tag $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE:$IMAGE_TAG --build-arg SERVER_NAME=$SERVER_NAME --build-arg REPORT_STATS=$REPORT_STATS
@@ -84,22 +84,8 @@ jobs:
           map: |
             {
               "sandbox": {"CF_SPACE": "sandbox"},
-              "demo": {"CF_SPACE": "demo"},
-              "temp": {"CF_SPACE": "temp"},
               "develop": {"CF_SPACE": "develop"},
-              "staging": {"CF_SPACE": "staging"},
-              "pentest": {"CF_SPACE": "pentest"},
-              "feature/deploy-from-main": {"CF_SPACE": "flibble"}
-            }
-
-      - name: Get prod space name
-        if:  ${{ github.event_name == 'release' }}
-        uses: kanga333/variable-mapper@v0.2.2
-        with:
-          key: "${{github.ref_name}}"
-          map: |
-            {
-              "v?.?.?": {"CF_SPACE": "prod"},
+              "prod": {"CF_SPACE": "prod"},
               "feature/deploy-from-main": {"CF_SPACE": "flibble"}
             }
 
@@ -110,7 +96,7 @@ jobs:
         run: ./cf login -a api.london.cloud.service.gov.uk -u "${{ secrets.CF_USER }}" -p "${{ secrets.CF_PASSWORD }}" -o co-i-ai -s "$CF_SPACE"
 
       - name: CF push synapse
-        if:  ${{ "CF_SPACE" != 'prod' }}
+        if:  ${{ github.ref_name != 'prod' }}
         env:
           DOCKER_FILE: ${{ matrix.dockerfile }}
           DOCKER_IMAGE: ${{ matrix.app }}
@@ -119,7 +105,7 @@ jobs:
         run: CF_DOCKER_PASSWORD="$PAT_TOKEN" ./cf push -f manifests/"$CF_SPACE"/${{ matrix.app }}_manifest.yml --docker-image $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE:$IMAGE_TAG --docker-username=$PAT_TOKEN_USER
 
       - name: CF push ${{ matrix.app }}
-        if:  ${{ "CF_SPACE" == 'prod' }}
+        if:  ${{ github.ref_name == 'prod' }}
         env:
           DOCKER_FILE: ${{ matrix.dockerfile }}
           DOCKER_IMAGE: ${{ matrix.app }}

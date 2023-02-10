@@ -1,11 +1,11 @@
 ---
 applications:
 - name: i-dot-ai-matrix
-  memory: 1024M
+  memory: 2048M
   instances: 1
   env:
     SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
-  disk_quota: 2048M
+  disk_quota: 1024M
   services:
     - i-dot-ai-matrix-postgres
   routes:
