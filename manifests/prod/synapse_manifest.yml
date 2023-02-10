@@ -1,14 +1,14 @@
 ---
 applications:
-- name: i-dot-ai-matrix
+- name: delivery-unit-matrix
   memory: 2048M
   instances: 1
   env:
     SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
   disk_quota: 2048M
   services:
-    - i-dot-ai-matrix-postgres
+    - delivery-unit-matrix-postgres
   routes:
-  - route: i-dot-ai-matrix.london.cloudapps.digital
+  - route: delivery-unit-matrix.london.cloudapps.digital
     protocol: http1
   health-check-type: port

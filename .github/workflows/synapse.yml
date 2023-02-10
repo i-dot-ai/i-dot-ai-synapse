@@ -49,7 +49,7 @@ jobs:
 
       - name: Setup prod servername
         if:  ${{ github.ref_name == 'prod'}}
-        run: echo "SERVER_NAME=i-dot-ai-matrix" >> $GITHUB_ENV
+        run: echo "SERVER_NAME=delivery-unit-matrix" >> $GITHUB_ENV
 
       - name: Build, tag, and push ${{ matrix.app }} image
         env:
