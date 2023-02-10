@@ -35,8 +35,8 @@ database:
 log_config: "/data/${SERVER_NAME}.log.config"
 media_store_path: /data/media_store
 registration_shared_secret: "${REGISTRATION_SHARED_SECRET}"
-enable_registration: false
-enable_registration_without_verification: false
+enable_registration: true
+enable_registration_without_verification: true
 report_stats: true
 macaroon_secret_key: "${MACAROON_SECRET_KEY}"
 form_secret: "${FORM_SECRET}"
