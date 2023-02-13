@@ -5,7 +5,7 @@ set -o nounset
 
 #Get the value of the POSTGRES_URL environment variable
 url=$(echo $DATABASE_URL)
-echo ${url}
+# echo ${url}
 
 # Split the URL into parts
 protocol=$(echo $url | awk -F: '{print $1}')
