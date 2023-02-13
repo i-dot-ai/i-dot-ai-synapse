@@ -29,6 +29,6 @@ envsubst '${POSTGRES_USER},
           ${POSTGRES_PASSWORD},
           ${POSTGRES_NAME},
           ${POSTGRES_HOST}' < /data/homeserver.yaml.template > /data/homeserver.yaml
-cat /data/homeserver.yaml
+# cat /data/homeserver.yaml
 
 python3 -m synapse.app.homeserver --config-path /data/homeserver.yaml
