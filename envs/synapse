@@ -1,9 +1,13 @@
 # The DATABASE URL will get split out into the following variables
-# POSTGRES_USER='synapse'
-# POSTGRES_NAME='synapse'
-# POSTGRES_HOST='i-dot-ai-synapse_synapse_db_1'
-# POSTGRES_PASSWORD='mysecretpassword'
 DATABASE_URL='postgres://synapse:mysecretpassword@i-dot-ai-synapse_synapse_db_1:5432/synapse'
+# These Ones are needed for local deployments
+POSTGRES_USER='synapse'
+POSTGRES_NAME='synapse'
+POSTGRES_HOST='i-dot-ai-synapse_synapse_db_1'
+POSTGRES_PASSWORD='mysecretpassword'
+
+SMTP_PASS='testpassword'
+SMTP_USER='testuser'
 
 FORM_SECRET='xxxxxxxxxxxxxxxxxxxxxx'
 MACAROON_SECRET_KEY='xxxxxxxxxxxxxxxxxxxxxxx'
