@@ -1,0 +1,14 @@
+---
+applications:
+- name: delivery-group-matrix
+  memory: 2048M
+  instances: 1
+  env:
+    SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
+  disk_quota: 2048M
+  services:
+    - delivery-group-matrix-postgres
+  routes:
+  - route: delivery-group-matrix.london.cloudapps.digital
+    protocol: http1
+  health-check-type: port

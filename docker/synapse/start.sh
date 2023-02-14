@@ -5,7 +5,7 @@ set -o nounset
 
 #Get the value of the POSTGRES_URL environment variable
 url=$(echo $DATABASE_URL)
-echo ${url}
+# echo ${url}
 
 # Split the URL into parts
 protocol=$(echo $url | awk -F: '{print $1}')
@@ -24,7 +24,9 @@ POSTGRES_NAME=$database
 
 envsubst '${FORM_SECRET},
           ${REGISTRATION_SHARED_SECRET},
-          ${MACAROON_SECRET_KEY}' < /data/homeserver.yaml > /data/homeserver.yaml.template
+          ${MACAROON_SECRET_KEY},
+          ${SMTP_USER},
+          ${SMTP_PASS}' < /data/homeserver.yaml > /data/homeserver.yaml.template
 envsubst '${POSTGRES_USER},
           ${POSTGRES_PASSWORD},
           ${POSTGRES_NAME},
