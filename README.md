@@ -1,6 +1,6 @@
 ## synapse-matrix
 
-### to test locally run
+### To test locally run
 
 ```
 cp envs/example.synapse envs/synapse
