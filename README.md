@@ -3,7 +3,7 @@
 ### to test locally run
 
 ```
-cp envs/example.synpase envs/synapse
+cp envs/example.synapse envs/synapse
 ```
 change any vars if required in envs/synapse
 
