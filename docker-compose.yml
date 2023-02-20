@@ -5,9 +5,9 @@ services:
     # image: docker.io/matrixdotorg/synapse:v1.63.0
     build:
       context: .
-      dockerfile: ./docker/synapse/Dockerfile
+      dockerfile: ./docker/synapse/local.Dockerfile
       args:
-        SERVER_NAME: 'rbpops.co.uk'
+        SERVER_NAME: 'localhost:8008'
         REPORT_STATS: 'no'
     restart: unless-stopped
     environment:
@@ -19,22 +19,30 @@ services:
       - ./envs/synapse
     depends_on:
       - synapse_db
+      - mailhog
     ports:
       - 8008:8008
 
 
   synapse_db:
-    # image: docker.io/postgres:14-alpine
-    build:
-      context: .
-      dockerfile: ./docker/postgres/Dockerfile
+    image: docker.io/postgres:14-alpine
+    # build:
+    #   context: .
+    #   dockerfile: ./docker/postgres/Dockerfile
     restart: unless-stopped
     environment:
-      # - POSTGRES_USER=synapse
+      - POSTGRES_USER=synapse
       - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
     volumes:
       - synapse_db_data:/var/lib/postgresql/synapse_data
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025" # SMTP port
+      - "8025:8025" # Web interface
+
 
 volumes:
   synapse_data:

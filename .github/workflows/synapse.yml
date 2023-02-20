@@ -27,7 +27,7 @@ jobs:
       IMAGE_TAG: ${{ github.ref_name }}
       DOCKER_REPOSITORY: ghcr.io
       ENVIRONMENT: ${{ github.ref_name }}
-      SERVER_NAME: synapse-${{ github.ref_name }}
+      SERVER_NAME: synapse-${{ github.ref_name }}.london.cloudapps.digital
       REPORT_STATS: 'no'
 
     strategy:
@@ -49,7 +49,7 @@ jobs:
 
       - name: Setup prod servername
         if:  ${{ github.ref_name == 'prod'}}
-        run: echo "SERVER_NAME=delivery-group-matrix" >> $GITHUB_ENV
+        run: echo "SERVER_NAME=delivery-group-matrix.london.cloudapps.digital" >> $GITHUB_ENV
 
       - name: Build, tag, and push ${{ matrix.app }} image
         env:

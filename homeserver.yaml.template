@@ -35,14 +35,33 @@ database:
 log_config: "/data/${SERVER_NAME}.log.config"
 media_store_path: /data/media_store
 registration_shared_secret: "${REGISTRATION_SHARED_SECRET}"
+
 enable_registration: true
 enable_registration_without_verification: true
-report_stats: true
+registration_requires_token: false
+
+report_stats: false
 macaroon_secret_key: "${MACAROON_SECRET_KEY}"
 form_secret: "${FORM_SECRET}"
 signing_key_path: "/data/${SERVER_NAME}.signing.key"
 trusted_key_servers:
   - server_name: "matrix.org"
 suppress_key_server_warning: true
-# ${POSTGRES_NAME}
+# Email configuration
+#request_token_inhibit_3pid_errors: true
+email:
+  enable_notifs: true
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 587
+  enable_tls: true
+  require_transport_security: true
+  #notif_for_new_users: false
+  smtp_user: "${SMTP_USER}"
+  smtp_pass: '${SMTP_PASS}'
+  notif_from: noreply@myemail.com
+  app_name: "${SERVER_NAME}"
+  subjects:
+    email_validation: "[%(server_name)s] Validate your email"
+  #request_token_inhibit_3pid_errors: true
+
 # vim:ft=yaml

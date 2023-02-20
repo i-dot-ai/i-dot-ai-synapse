@@ -16,7 +16,6 @@ WORKDIR /data
 
 # RUN python3 -m synapse.app.homeserver --server-name=${SERVER_NAME} --report-stats=${REPORT_STATS} --generate-config -c /data/homeserver.yaml
 
-
 COPY ./homeserver.yaml.template /data/homeserver.yaml.template
 RUN envsubst '${SERVER_NAME}' < /data/homeserver.yaml.template > /data/homeserver.yaml
 
