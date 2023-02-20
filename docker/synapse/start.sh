@@ -24,7 +24,9 @@ POSTGRES_NAME=$database
 
 envsubst '${FORM_SECRET},
           ${REGISTRATION_SHARED_SECRET},
-          ${MACAROON_SECRET_KEY}' < /data/homeserver.yaml > /data/homeserver.yaml.template
+          ${MACAROON_SECRET_KEY}
+          ${SMTP_USER},
+          ${SMTP_PASS}' < /data/homeserver.yaml > /data/homeserver.yaml.template
 envsubst '${POSTGRES_USER},
           ${POSTGRES_PASSWORD},
           ${POSTGRES_NAME},
