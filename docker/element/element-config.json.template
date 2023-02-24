@@ -7,7 +7,7 @@
     },
     "user_notice": {
         "title": "Delivery Group Matrix",
-        "description": "This is an I.AI hosted Delivery Group 'Element' web-app that connects to the Delivery Group Matrix service",
+        "description": "This is the 'Element' web application, hosted by i.AI and connected to the Delivery Group's Matrix service, providing secure internal communication and collaboration among Delivery Group teams.",
         "show_once": "true"
     },
     "disable_custom_urls": "true",
