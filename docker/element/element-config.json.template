@@ -7,7 +7,7 @@
     },
     "user_notice": {
         "title": "Delivery Group Matrix",
-        "description": "This is the 'Element' web application, hosted by i.AI and connected to the Delivery Group's Matrix service, providing secure internal communication and collaboration among Delivery Group teams.",
+        "description": "This is the 'Element' web application, hosted by i.AI and connected to the Delivery Group's Matrix service, providing secure internal communication and collaboration among Delivery Group teams. NOTE: 'Private' rooms have e2e encryption disabled to comply with FOI rules",
         "show_once": "true"
     },
     "disable_custom_urls": "true",
