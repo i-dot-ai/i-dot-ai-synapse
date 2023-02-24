@@ -1,0 +1,10 @@
+---
+applications:
+- name: element-sandbox
+  memory: 2048M
+  instances: 1
+  disk_quota: 254M
+  routes:
+  - route: element-sandbox.london.cloudapps.digital
+    protocol: http1
+  health-check-type: port

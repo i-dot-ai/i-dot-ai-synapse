@@ -1,0 +1,23 @@
+{
+    "brand": "Delivery Group Matrix",
+    "default_theme": "dark",
+    "disable_guests": "true",
+    "branding": {
+        "auth_header_logo_url": "https://cabinetofficejobs.tal.net/SAN/public/000/413/live/6/66/667/6677/66776/667760ad5b47d7c58b0b80733cc135901624c53d/file.png"
+    },
+    "user_notice": {
+        "title": "Delivery Group Matrix",
+        "description": "This is an I.AI hosted Delivery Group 'Element' web-app that connects to the Delivery Group Matrix service",
+        "show_once": "true"
+    },
+    "disable_custom_urls": "true",
+    "default_server_config": {
+        "m.homeserver": {
+            "base_url": "https://${SERVER_NAME}",
+            "server_name": "${SERVER_NAME}"
+        },
+        "m.identity_server": {
+            "base_url": "https://vector.im"
+        }
+    }
+}

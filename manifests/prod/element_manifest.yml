@@ -1,0 +1,10 @@
+---
+applications:
+- name: delivery-group-element
+  memory: 2048M
+  instances: 1
+  disk_quota: 254M
+  routes:
+  - route: delivery-group-element.london.cloudapps.digital
+    protocol: http1
+  health-check-type: port
