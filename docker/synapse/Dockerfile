@@ -17,6 +17,8 @@ RUN apt-get update -y && apt-get install gettext -y
 
 WORKDIR /data
 
+COPY ./matrix_e2ee_filter.py /usr/local/lib/python3.8/site-packages/matrix_e2ee_filter.py
+
 COPY ./docker/synapse/start.sh /start.sh
 RUN chmod +x /start.sh
 

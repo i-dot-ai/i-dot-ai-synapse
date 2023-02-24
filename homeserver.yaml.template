@@ -63,5 +63,13 @@ email:
   subjects:
     email_validation: "[%(server_name)s] Validate your email"
   #request_token_inhibit_3pid_errors: true
-
+# Disable end to end encryption
+modules:
+  - module: "matrix_e2ee_filter.EncryptedRoomFilter"
+    config:
+      deny_encryption_for_users_of: ['${SERVER_NAME}']
+      deny_encryption_for_rooms_of: ['${SERVER_NAME}']
+loggers:
+    matrix_e2ee_filter:
+        level: INFO
 # vim:ft=yaml
